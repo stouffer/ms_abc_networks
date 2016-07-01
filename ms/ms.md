@@ -176,15 +176,15 @@ allowed us to ensure that the model could return networks with all possible
 configurations, and that the output covered a range of network structures
 larger than what was observed in nature. Second, we sampled the parameter
 space uniformly, by drawing $10^5$ parameter sets at random from within the
-aforementioned bounds. These outputs were used in the parameter selection
+aforementioned bounds. These outputs were then used in the parameter selection
 experiment described below.
 
-Each timestep in the simulation consists of three sub-steps. First, a level
+Each timestep in the simulations consists of three sub-steps. First, a level
 is picked at random: the top-level is picked with probability $p$, and the
-bottom-level is picked with probability $1-p$. This is independent of the
+bottom-level is picked with probability $1-p$. Note that this occurred independent of the
 number of species at each level. Second, one species from the selected level
-is picked at random (all species within a level have equal chance of being
-picked), and duplicated (*i.e.* a novel species with the same interactions
+is picked at random (*i.e.* all species within a level have equal chance of being
+picked) and duplicated (*i.e.* a novel species with the same interactions
 is added to the network). Each interaction of the incipient species is then
 *removed* with probability
 
@@ -194,18 +194,18 @@ is added to the network). Each interaction of the incipient species is then
 
 In this formulation, $k$ is the number of interactions of the incipient
 species, $\lambda$ is the *basal* rate of interaction loss, and $c$ is a
-parameter regulating whether species with more interactions tend to gain or
+parameter that regulates whether species with more interactions tend to gain or
 lose interactions over time. Negative values of $c$ imply that *rich get
 richer*, *i.e.* species with more interactions tend to conserve them more
-over speciation. The special case of $c = 0$ corresponds to no relationship
+after speciation. The special case of $c = 0$ corresponds to no relationship
 between the degree of a species and its probability of losing or retaining
 an interaction over speciation.
 
 We ran the model for $10^4$ timesteps, for $10^5$ random combinations of $<p,
-\lambda, c>$. Whenever either level has more than $10^2$ species, some are
-deleted at random within this level. This ensure that the network is at most
+\lambda, c>$. Whenever either level had more than $10^2$ species, some {>>DBS: how many is some?<<} were
+deleted at random within this level. This ensured that the network is at most
 composed of 200 species. Preliminary analyses revealed that this threshold
-had no impact on the results presented as long as it was reasonably large
+had no impact on the results presented as long as it was sufficiently large
 ($\geq 50$).
 
 ## Network measures
@@ -219,13 +219,13 @@ the number of species in the top and bottom groups. Second, nestedness
 global nestedness score based on the fact that interactions of relatively
 specialized species should be a subset of the interactions of more generalized
 ones. Third, modularity, using LP-BRIM [@liu09cdl; @barb09dnc], which gives
-values close to 1 when there are modules in the network, and values closer to
+values close to 1 when there are modules in the network and values closer to
 0 otherwise. Finally, we measured the proportion of all four-species bipartite
 motifs [@bake14srf]. Bipartite motifs are all the possible conformations of
-four species spread across two levels, such as for example three consumers
-sharing one resource, or two consumers both exploiting resources, *etc.*.
+four species spread across two levels, such as three consumers
+sharing one resource, two consumers both of which exploit two resources, *etc.*.
 
-So that the motif measure would also fall in the range $[0,1]$, we corrected
+So that the motif measures would also fall in the range $[0,1]$, we corrected
 the raw number of motifs to account for the number of species in each layer
 of the bipartite network. For example, the maximum number of motifs with
 2 species at the top and 2 species at the bottom is the product of the
@@ -247,7 +247,7 @@ distance between the two arrays was recorded as the score of the parameter
 set. Because each empirical network is in practice a different optimization
 problem submitted to the ABC routine, and because ABC requires to set the
 rejection threshold on a per-problem basis, setting a global value was not
-meaningful. To circumvent this problem, we instead selected the posterior
+meaningful. To circumvent this problem, we instead defined the posterior
 distribution as the 500 parameters sets that gave the best scores (*i.e.*
 above the 95th percentile). The distribution of distances (*i.e.* how well
 each point within the posterior distributions actually describes the empirical
@@ -258,11 +258,11 @@ network) is kept to evaluate the global fit on a per-network basis.
 We used a classification tree to separate the networks along the continuum
 of values of $c$ and $\lambda$. The response was the type of network, and
 the classifiers where the $\text{log}_{10}$ of $c$ and $\lambda$ and the
-log transformation helped do something real and spectacular. We used the
+log transformation helped do something real and spectacular {>>don't forget me<<}. We used the
 implementation from the `tree` package (v. 1.0.36) for `R` (v. 3.2.2). Splits
 where decided according to Gini ratio. The weight of each datapoint was
 proportional to the inverse of the Euclidean distance between the output
-of the simulation and the actual network, so that networks that were poorly
-described by the model have a lessened impact on the classification.
+of the simulation and the actual network so that networks that were poorly
+described by the model had a lessened impact on the classification.
 
 # References
