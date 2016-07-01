@@ -43,7 +43,7 @@ dynamics [@dono07rcc]. Therefore, we instead addressed the question of network
 macro-evolution here by using extant ecological networks to calibrate the
 end points of an interaction-centric birth-death simulation model under the
 assumption that the best-fitting models will provide insight into the network's
-likely evolutionary history. Among the variety of ecological networks types,
+likely evolutionary history. Among the variety of ecological network types,
 bipartite ones are the most appropriate family to test this model: they have
 well partitioned interactions between guilds with no complex feedback loops,
 are present in a variety of systems and types of biological interactions,
@@ -63,7 +63,7 @@ are gained through speciation---to be lost either at a fixed rate $\lambda$
 or as a function of the incipient species' degree $k$. The $c$ parameter
 modulates this relationship further by influencing whether high degree of an
 ancestor increases, or decreases, the probability of the incipient species
-losing interactions. Interpretation of this model is straightforward: if
+losing interactions. Interpretation of this model is relatively straightforward: if
 the evolutionary dynamics of interactions are critical for the evolutionary
 dynamics of communities, we expect that the values of any speciation-related
 parameters will be less important than those of interaction-related one(s).
@@ -85,7 +85,7 @@ properties, including connectance, modularity [@oles07mpn], nestedness
 [@bast09amn], and the distribution of different network motifs [@stou07eer]
 (see *Methods*). For each network, the posterior distribution of best-fitting
 parameters is given by the set parameters of the closest 500 simulated models
-(to top $1\%$ of the total).
+(the top $1\%$ of the total).
 
 !{posteriors}
 
